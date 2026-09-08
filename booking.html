@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Book Parking Slot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="brand">🚗 Campus Parking</div>
+
+    <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="parking.html">Parking</a>
+        <a href="booking.html">Book Slot</a>
+        <a href="admin.html">Admin</a>
+        <button onclick="logout()" class="logout-btn">Logout</button>
+    </div>
+</nav>
+
+<main class="container">
+
+    <div class="page-header">
+        <div>
+            <p class="eyebrow">QUICK RESERVATION</p>
+            <h1>Book a Parking Slot</h1>
+            <p>Reserve your parking space before arriving.</p>
+        </div>
+    </div>
+
+    <div class="booking-layout">
+
+        <div class="booking-card">
+
+            <div class="booking-icon">🅿️</div>
+
+            <h2>Parking Reservation</h2>
+
+            <div class="input-group">
+                <label>User Type</label>
+
+                <select id="userType">
+                    <option>Student</option>
+                    <option>Staff</option>
+                    <option>Visitor</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Vehicle Number</label>
+
+                <input type="text"
+                       id="vehicleNumber"
+                       placeholder="TN 55 AB 1234">
+            </div>
+
+            <div class="input-group">
+                <label>Select Available Slot</label>
+
+                <select id="slotSelect">
+                    <option value="">Loading slots...</option>
+                </select>
+            </div>
+
+            <button class="primary-btn full-btn"
+                    onclick="bookFromPage()">
+                Confirm Booking
+            </button>
+
+        </div>
+
+        <div class="info-card">
+
+            <h2>How it works</h2>
+
+            <div class="step">
+                <span>1</span>
+                <div>
+                    <h3>Select Slot</h3>
+                    <p>Choose an available parking slot.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span>2</span>
+                <div>
+                    <h3>Confirm</h3>
+                    <p>Enter vehicle details and confirm.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span>3</span>
+                <div>
+                    <h3>Scan QR</h3>
+                    <p>Use the simulated QR entry at campus.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<div id="confirmationModal" class="modal">
+    <div class="modal-card">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Booking Confirmed!</h2>
+
+        <p id="confirmationText"></p>
+
+        <div class="fake-qr">
+            ▦ ▦ ▦ ▦<br>
+            ▦ ▦ ▦ ▦<br>
+            ▦ ▦ ▦ ▦
+        </div>
+
+        <p class="small-text">
+            Show this QR at the campus entry gate.
+        </p>
+
+        <button class="primary-btn full-btn"
+                onclick="closeConfirmation()">
+            Done
+        </button>
+
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
