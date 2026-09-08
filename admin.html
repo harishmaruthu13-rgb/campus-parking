@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="brand">🚗 Campus Parking</div>
+
+    <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="parking.html">Parking</a>
+        <a href="booking.html">Book Slot</a>
+        <a href="admin.html">Admin</a>
+        <button onclick="logout()" class="logout-btn">Logout</button>
+    </div>
+</nav>
+
+<main class="container">
+
+    <div class="page-header">
+        <div>
+            <p class="eyebrow">ADMIN CONTROL CENTER</p>
+            <h1>Parking Analytics</h1>
+            <p>Monitor campus parking activity in real time.</p>
+        </div>
+    </div>
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+            <span>🅿️</span>
+            <div>
+                <h3 id="adminTotal">20</h3>
+                <p>Total Slots</p>
+            </div>
+        </div>
+
+        <div class="stat-card available-card">
+            <span>🟢</span>
+            <div>
+                <h3 id="adminAvailable">0</h3>
+                <p>Available</p>
+            </div>
+        </div>
+
+        <div class="stat-card occupied-card">
+            <span>🔴</span>
+            <div>
+                <h3 id="adminOccupied">0</h3>
+                <p>Occupied</p>
+            </div>
+        </div>
+
+        <div class="stat-card reserved-card">
+            <span>🟡</span>
+            <div>
+                <h3 id="adminReserved">0</h3>
+                <p>Reserved</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="analytics-grid">
+
+        <div class="analytics-card">
+            <h2>Parking Occupancy</h2>
+
+            <div class="progress-container">
+                <div id="occupancyProgress"
+                     class="progress-bar"></div>
+            </div>
+
+            <div class="progress-info">
+                <span>Current Usage</span>
+                <strong id="occupancyPercent">0%</strong>
+            </div>
+        </div>
+
+        <div class="analytics-card">
+            <h2>Vehicle Activity</h2>
+
+            <div class="activity-row">
+                <span>🚗 Vehicles Entered</span>
+                <strong id="entries">12</strong>
+            </div>
+
+            <div class="activity-row">
+                <span>🚙 Vehicles Exited</span>
+                <strong id="exits">7</strong>
+            </div>
+
+            <div class="activity-row">
+                <span>📅 Today's Bookings</span>
+                <strong id="bookings">0</strong>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="admin-table-card">
+
+        <div class="table-header">
+            <h2>Slot Status</h2>
+
+            <button class="secondary-btn"
+                    onclick="resetParking()">
+                Reset Demo
+            </button>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Slot</th>
+                        <th>Status</th>
+                        <th>Vehicle</th>
+                    </tr>
+                </thead>
+
+                <tbody id="adminTable"></tbody>
+            </table>
+        </div>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
