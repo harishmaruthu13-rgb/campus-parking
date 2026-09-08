@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Parking - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="logo">🚗</div>
+            <h1>Campus Parking</h1>
+            <p class="subtitle">Smart Parking & Slot Allocation System</p>
+
+            <form onsubmit="login(event)">
+                <div class="input-group">
+                    <label>Email / Student ID</label>
+                    <input type="text" id="username"
+                           placeholder="Enter your ID" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password"
+                           placeholder="Enter password" required>
+                </div>
+
+                <button class="primary-btn" type="submit">
+                    Login →
+                </button>
+            </form>
+
+            <p class="demo-text">Hackathon Demo • No backend required</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
