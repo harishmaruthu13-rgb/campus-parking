@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Slots</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="brand">🚗 Campus Parking</div>
+
+    <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="parking.html">Parking</a>
+        <a href="booking.html">Book Slot</a>
+        <a href="admin.html">Admin</a>
+        <button onclick="logout()" class="logout-btn">Logout</button>
+    </div>
+</nav>
+
+<main class="container">
+
+    <div class="page-header">
+        <div>
+            <p class="eyebrow">LIVE PARKING MAP</p>
+            <h1>Parking Slots</h1>
+            <p>Select an available green slot to reserve it.</p>
+        </div>
+
+        <div class="availability-counter">
+            <strong id="liveAvailable">0</strong>
+            <span>Available Slots</span>
+        </div>
+    </div>
+
+    <div class="legend">
+        <span><i class="legend-box available"></i> Available</span>
+        <span><i class="legend-box occupied"></i> Occupied</span>
+        <span><i class="legend-box reserved"></i> Reserved</span>
+    </div>
+
+    <div class="parking-area">
+
+        <div class="parking-road">
+            <span>ENTRY</span>
+            <span class="road-arrow">↓</span>
+        </div>
+
+        <div id="parkingGrid" class="parking-grid"></div>
+
+        <div class="parking-road">
+            <span>EXIT</span>
+            <span class="road-arrow">↑</span>
+        </div>
+
+    </div>
+
+    <div class="moving-car">🚗</div>
+
+</main>
+
+<div id="bookingModal" class="modal">
+    <div class="modal-card">
+        <button class="close-btn" onclick="closeModal()">×</button>
+
+        <div class="success-icon">✓</div>
+
+        <h2>Reserve Slot?</h2>
+
+        <p>
+            You selected parking slot
+            <strong id="selectedSlot"></strong>.
+        </p>
+
+        <div class="modal-actions">
+            <button class="secondary-btn" onclick="closeModal()">
+                Cancel
+            </button>
+
+            <button class="primary-btn" onclick="confirmSlot()">
+                Confirm Booking
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

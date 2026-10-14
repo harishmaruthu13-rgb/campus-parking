@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Parking - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+
+<body class="auth-body">
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="logo">🚗</div>
+            <h1>Campus Parking</h1>
+            <p class="subtitle">Smart Parking & Slot Allocation System</p>
+
+            <form onsubmit="login(event)">
+                <div class="input-group">
+                    <label>Register Number / Username</label>
+                    <input type="text" id="username" placeholder="e.g. 9925051005 or admin" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Password (Same as Reg No)</label>
+                    <input type="password" id="password" placeholder="Enter password (default: same as ID)">
+                </div>
+
+                <button class="primary-btn full-btn" type="submit" style="margin-bottom: 12px;">
+                    Login →
+                </button>
+            </form>
+
+            <div style="margin: 15px 0; text-align: center; color: var(--muted); font-size: 12px; font-weight: 700;">
+                ──────── OR ────────
+            </div>
+
+            <!-- Scan Barcode Button -->
+            <button class="secondary-btn full-btn" onclick="startLoginBarcodeScan()" style="margin-bottom: 15px; width: 100%; border-color: var(--brand); color: var(--brand);">
+                📷 Scan Student ID Barcode to Login
+            </button>
+
+            <!-- Visitor Login Card Section -->
+            <div class="visitor-box" style="background: #f8fafc; border: 1px dashed var(--border); padding: 15px; border-radius: 14px; text-align: center; margin-top: 10px;">
+                <h3 style="font-size: 14px; font-weight: 800; color: #0f172a; margin-bottom: 5px;">🚗 Visitor Entry Pass</h3>
+                <p style="font-size: 12px; color: var(--muted); margin-bottom: 10px;">Guest or Visitor without a Student ID?</p>
+                <button class="primary-btn" onclick="loginAsVisitor()" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); font-size: 13px; padding: 8px 16px;">
+                    Visitor Quick Login →
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Login Camera Barcode Scanner Modal -->
+    <div id="cameraModal" class="modal">
+        <div class="modal-card camera-card">
+            <button class="close-btn" onclick="stopCameraScan()">×</button>
+            <div class="camera-header">
+                <h2>📷 Scan Student ID Barcode</h2>
+                <p>Scan your Student ID Card Barcode to auto-register & login</p>
+            </div>
+
+            <div id="qrReader" class="qr-reader-container"></div>
+            
+            <div class="camera-manual-input">
+                <p class="small-text">Or enter Student Barcode Reg No manually:</p>
+                <div class="manual-input-row">
+                    <input type="text" id="manualRegNo" placeholder="e.g. 9925051005">
+                    <button class="primary-btn" onclick="processManualScan()">Login Student</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
